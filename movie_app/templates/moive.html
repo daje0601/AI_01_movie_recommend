@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link rel="stylesheet" href="../static/css/movies.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>movies</title>
+    </head>
+
+
+    <body>
+        {% block main_body %}
+        <div className="movies">
+            {% for idx in movie %}
+            <div className="movie">
+                
+                <img src={{idx.medium_cover_image}} alt={{idx.title}} title={{title}} width="100" height="200"/>
+                
+                
+                <div className="movie__data">
+                    <div>
+                        <div className="movie__title">제목 : {{idx.title}}</div>
+                        <div className="movie__year">연도 : {{idx.rating}}</div>
+                        <div className="movie__year">연도 : {{idx.year}}</div>
+                        <div className="movie__genres">장르 : {{idx.genres}}</div>
+                        <p className="movie__summary">줄거리 : {{idx.summary}}</p>    
+                        <form method="POST">
+                            <input name="toupload" style="display:none;" value="{{idx.title}}"/>
+            
+                            <input name="likeitbutton" type="submit" class="btn btn-primary" value="Like it" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}   
+        </div>
+        {% endblock %}
+    </body>
+</html>
+
+
+

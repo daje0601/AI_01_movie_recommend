@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title  %}
+This is my movie list
+{% endblock  %}
+
+{% block lead  %}
+Do you want your movie list?
+Go to the movie page and click the Like it! 
+(당신만의 영화 리스트를 만들어보세요)
+{% endblock  %}
+
+
+{% block main_body  %}
+
+    {% if display_likelist %}
+        {% for movie_lk in display_likelist %}
+            <form>
+                <input name="delete_movie" style="display:none;" value="{{movie_lk.moviename}}"/>            
+                <input name="deletetbutton" type="submit" class="btn btn-primary" value="Delete" />
+                <h3>{{movie_lk.moviename}}</h3>
+            </form>        
+        {% endfor %}  
+    {% endif %}
+{% endblock  %}
+

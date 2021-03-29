@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title  %}
+Compare User
+{% endblock  %}
+
+{% block lead  %}
+To compare press the button
+{% endblock  %}
+
+{% block main_body  %}
+<form method="POST" action="/compare">
+  <label>원하는 단어 또는 문장을 입력하세요</label>
+  <input name="compare_text" style="margin-bottom:10px" class="form-control" type="text" />
+  <input type="submit" class="btn btn-primary" value="Compare" />
+</form>
+
+{% if prediction %}
+<p>요청하신 '{{prediction.compare_text}}' 컨텐츠에는 '{{prediction.result}}' 영화를 추천드립니다.</p>
+
+{% endif %}
+{% endblock  %}
